@@ -1,0 +1,13 @@
+{
+    "MONGO_HOSTNAME": "mongodb://127.0.0.1",
+    "MONGO_HOSTIP": "127.0.0.1",
+    "MONGO_PORTNUMBER": 27017,
+    "TMDB_API_KEY": "2682e7dfbdb68561f1787e7e8aab91f9",
+	"REDDIT_CLIENT_ID":"9gOtZNvLj2MoT2ehVcQfcw",
+	"REDDIT_SECRET_KEY":"Rr7Ywf6Z4ulTe-tLAJ_UdKHKF56Tbg",
+	"REDDIT_USER_NAME":"sadap1",
+	"REDDIT_PASSWORD":"databringers",
+    "VM_IP": "128.226.29.122",
+    "VM_PASSWORD": "DSydaSh33",
+    "SUBREDDIT_LIST":"moviereviews,movies,TrueFilm,boxoffice,IMDbFilmGeneral,horror,scifi,filmmakers,animation,DC_Cinematic,Marvel,StarWars,JamesBond,pixar,lotr,harrypotter,flicks,MovieSuggestions,Godfather,ShawshankRedemption,TheGodfatherII,SpiritedAway,parasite,thedarkknight,TheDarkKnightRises,TheDarkKnightTrilogy,pulpfiction,ForrestGump,TheLordOfTheRings,goodfellas,fightclub,interstellar,IntoTheSpiderverse,AcrossTheSpider_Verse,Inception,SilenceOfTheLambs"
+}   

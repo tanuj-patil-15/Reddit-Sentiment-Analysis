@@ -1,0 +1,200 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+<style>
+  .input {
+    width: 200px;
+  }
+
+  .form-content {
+    text-align: left;
+  }
+
+  .static-graph {
+    width: 500px;
+    height: 500px;
+  }
+
+  .selection-form {
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+
+
+  .card-counter {
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover {
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary {
+    background-color: #007bff;
+    color: #FFF;
+  }
+
+  .card-counter.danger {
+    background-color: #ef5350;
+    color: #FFF;
+  }
+
+  .card-counter.success {
+    background-color: #66bb6a;
+    color: #FFF;
+  }
+
+  .card-counter.info {
+    background-color: #26c6da;
+    color: #FFF;
+  }
+
+  .card-counter i {
+    font-size: 5em;
+    opacity: 0.2;
+  }
+
+  .card-counter .count-numbers {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  .card-counter .count-name {
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+
+  .color {
+    color: aliceblue !important;
+  }
+
+  .display-4{
+    font-size: 29px !important;
+    margin-bottom: 30px;
+  }
+  .contain{
+    margin-left: 10px;
+  }
+</style>
+
+<script>
+  $(document).ready(function () {
+    var date_input = $('input[name="date"]'); //our date input has the name "date"
+    var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+    var options = {
+      format: 'mm/dd/yyyy',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+    };
+    date_input.datepicker(options);
+  })
+  function navigateTo() {
+    var start_date = document.getElementById("sdate").value
+    var end_date = document.getElementById("ddate").value
+    var selection = document.getElementById("select_id").value
+    if (selection == "1") {
+      window.location.href = "/senti/data?sd=" + start_date + "&ed=" + end_date;
+    } else if (selection == 2) {
+      window.location.href = "/daily/data/l?sd=" + start_date + "&ed=" + end_date;
+    } else if (selection == 3) {
+      window.location.href = "/hourly/data/l?sd=" + start_date + "&ed=" + end_date;
+    }
+    else if (selection == 4) {
+      window.location.href = "./../static/images/impact.png"
+    }
+    else if (selection == 5) {
+      window.location.href = "./../static/images/hype.png"
+    }
+    
+
+  }
+</script>
+<nav class="navbar navbar-light bg-success color">
+  <a class="navbar-brand color" href="/">Databringers</a>
+</nav>
+<div class="contain">
+<br>
+<br>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card-counter danger">
+        <i class="fa fa-ticket"></i>
+        <span class="count-numbers">2</span>
+        <span class="count-name">Sources</span>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card-counter success">
+        <i class="fa fa-database"></i>
+        <span class="count-numbers">{{tc}}</span>
+        <span class="count-name">Data</span>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+  </div>
+  <br>
+  <br>
+  <h1 class="display-4">Select the below options to generate a plot</h1>
+  <div class="row">
+    <div class="col-md-3">
+      <label class="control-label" for="sdate">Start Date</label>
+      <input class="form-control input" id="sdate" name="date" placeholder="MM/DD/YYY" type="text" />
+    </div>
+    <div class="col-md-3">
+      <label class="control-label" for="ddate">End Date</label>
+      <input class="form-control input" id="ddate" name="date" placeholder="MM/DD/YYY" type="text" />
+    </div>
+    <div class="col-md-3">
+      <label class="control-label" for="select_id">Select Plot Type</label>
+      <select id="select_id" class="form-select input" aria-label="Analysis Type">
+        <option selected>Select a plot</option>
+        <option value="1">3 Data Sets Toxicity Analysis</option>
+        <option value="2">Politics Data Daily Count</option>
+        <option value="3">Politics Data Hourly Count</option>
+        <option value="4">Impact Analysis</option>
+        <option value="5">Positive Negative Hype</option>
+      </select>
+    </div>
+    <div class="col-md-3 input">
+      <br>
+      <button type="button" onclick="navigateTo()" class="btn btn-success input">Generate Plot</button>
+    </div>
+  </div>
+  <br>
+  <br>
+
+</div>
